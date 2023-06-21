@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-0be65d8667826a64d fs-078c1d6bf802b10e8:/ /var/www/
+sudo mount -t efs -o tls fs-069368a4c55890b5f:/ /var/www/
 sudo yum install -y httpd 
 sudo systemctl start httpd
 sudo systemctl enable httpd
@@ -22,7 +22,7 @@ mkdir /var/www/html/
 cp -R /wordpress/* /var/www/html/
 cd /var/www/html/
 touch healthstatus
-sed -i "s/localhost/database-1.csnharfynpoi.us-east-1.rds.amazonaws.com/g" wp-config.php 
+sed -i "s/localhost/b-db-mysql.cfjx7hbhlkdy.us-east-2.rds.amazonaws.com/g" wp-config.php 
 sed -i "s/username_here/Badmin/g" wp-config.php 
 sed -i "s/password_here/admin12345/g" wp-config.php 
 sed -i "s/database_name_here/wordpressdb/g" wp-config.php 
