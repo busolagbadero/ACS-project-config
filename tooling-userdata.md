@@ -13,7 +13,7 @@ git clone https://github.com/busolagbadero/ACS-project-config.git
 mkdir /var/www/html
 cp -R /tooling-1/html/*  /var/www/html/
 cd /tooling-1
-mysql -h b-db-mysql.cfjx7hbhlkdy.us-east-2.rds.amazonaws.com -u Badmin -p toolingdb < tooling-db.sql
+mysql -h lamislick-database-1.cp8ukuu2ieln.us-east-1.rds.amazonaws.com -u admin -p toolingdb < tooling-db.sql
 cd /var/www/html/
 touch healthstatus
 sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admin', 'tooling');/$db = mysqli_connect('lamislick-database-1.cp8ukuu2ieln.us-east-1.rds.amazonaws.com', 'admin', 'lamislick', 'toolingdb');/g" functions.php
